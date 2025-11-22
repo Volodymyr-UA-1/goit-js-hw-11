@@ -40,5 +40,5 @@ export function showLoader(){
 // Нічого не повертає.
 
 export function hideLoader(){
-    
+
 }

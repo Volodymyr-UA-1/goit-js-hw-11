@@ -9,7 +9,4 @@ import {createGallery,
 } from './js/render-functions';
 
 
-
-
-
 //logic foo
