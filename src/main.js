@@ -1,12 +1,12 @@
 
 
 //import foo 
-import {getImagesByQuery} from './src/js/pixabay-api';
+import {getImagesByQuery} from './js/pixabay-api';
 import {createGallery,
         clearGallery,
         showLoader,
         hideLoader
-} from './src/js/render-functions';
+} from './js/render-functions';
 
 
 
