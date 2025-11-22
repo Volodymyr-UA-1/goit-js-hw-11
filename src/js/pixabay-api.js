@@ -5,4 +5,4 @@ import axios from "axios";
 // здійснювати HTTP-запит і повертати значення властивості data з отриманої відповіді.
 
 
-getImagesByQuery(query);
+export function getImagesByQuery(query){}

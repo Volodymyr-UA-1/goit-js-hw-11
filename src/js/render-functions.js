@@ -10,21 +10,21 @@ import "izitoast/dist/css/iziToast.min.css";
 // додавати її в контейнер галереї 
 // та викликати метод екземпляра SimpleLightbox refresh(). 
 // Нічого не повертає.
-createGallery(images);
+export function createGallery(images){}
 
 
 
 //Ця функція нічого не приймає та повинна очищати вміст контейнера галереї. 
 // Нічого не повертає.
 
-clearGallery();
+export function clearGallery(){}
 
 
 
 //Ця функція нічого не приймає, 
 // повинна додавати клас для відображення лоадера. 
 // Нічого не повертає.//
-showLoader(); 
+export function showLoader(){}
 
 
 
@@ -33,4 +33,4 @@ showLoader();
 // повинна прибирати клас для відображення лоадера. 
 // Нічого не повертає.
 
-hideLoader(); 
+export function hideLoader(){}
