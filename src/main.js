@@ -2,10 +2,9 @@
 
 
 
-//import foo
-
-import getImagesByQuery from './js/pixabay-api';
-import createGallery from './js/render-functions';
+//import foo 
+import getImagesByQuery from '/src/js/pixabay-api';
+import createGallery from 'src/js/render-functions';
 
 
 
