@@ -1,7 +1,9 @@
 @import url('./reset.css');
 @import url('./base.css');
+@import url('./form.css');
 
-.loader {
+
+/* .loader {
     width: 48px;
     height: 48px;
     border: 5px solid #FFF;
@@ -10,4 +12,4 @@
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-    }
+    } */
