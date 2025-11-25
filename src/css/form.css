@@ -78,7 +78,7 @@ background-color: #6c8cff;;
   display: flex;
   align-items: center;
   justify-content: space-between;
-   
+  align-self: self-end;
   color: #555;
   width: 360px;
   height: 48px;
@@ -87,8 +87,13 @@ background-color: #6c8cff;;
 .info p {
   margin: 0;                    
   text-align: center; 
+  color: #000;        
+  font-weight: bold;
 }
-
+.info p .value {
+  color: #333; /* світлий колір для значення */
+  font-weight: normal;
+}
 .loader {
 width: 48px;
 height: 48px;

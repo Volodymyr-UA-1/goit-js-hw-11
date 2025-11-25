@@ -10,37 +10,25 @@ const lightbox = new SimpleLightbox('.gallery a', {
 });
 export function createGallery(images){
 const gallery  = document.querySelector('.gallery');
-images.forEach(image => {
-    const listElement = document.createElement('li');
-
-    const link =  document.createElement('a')
-    link.href = image.largeImageURL;
-    link.title = image.tags;
-
-    const img =  document.createElement('img');
-    img.src = image.webformatURL;
-    img.alt = image.tags;
-
-    
-    link.appendChild(img);
-    listElement.appendChild(link);
-
-    const infoDiv = document.createElement('div');
-    infoDiv.classList.add('info');
-    infoDiv.innerHTML = `
-      <p>Likes: ${image.likes}</p>
-      <p>Views: ${image.views}</p>
-      <p>Comments: ${image.comments}</p>
-      <p>Downloads: ${image.downloads}</p>
+const markup = images.map(image => {
+    return `
+      <li>
+        <a href="${image.largeImageURL}" title="${image.tags}">
+          <img src="${image.webformatURL}" alt="${image.tags}">
+        </a>
+        <div class="info">
+          <p>Likes: <span class="value">${image.likes}</span></p>
+          <p>Views: <span class="value">${image.views}</span></p>
+          <p>Comments: <span class="value">${image.comments}</span></p>
+          <p>Downloads: <span class="value">${image.downloads}</span></p>
+        </div>
+      </li>
     `;
-
-    listElement.appendChild(infoDiv);
-    gallery.appendChild(listElement);
-});
+  }).join('');
+gallery.insertAdjacentHTML('beforeend', markup);
 lightbox.refresh();
-} 
 
-
+}
 
 export function clearGallery(){
    const gallery = document.querySelector('.gallery');

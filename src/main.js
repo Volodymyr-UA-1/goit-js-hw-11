@@ -34,7 +34,7 @@ input.focus();
       if (hits.length === 0) {
         iziToast.error({
           message: 'Sorry, there are no images matching your search query. Please try again!',
-          position: 'bottomRight',
+          position: 'center',
           backgroundColor: 'red',
           timeout: 3000,    
           pauseOnHover: true, 
@@ -47,6 +47,12 @@ input.focus();
     })
     .catch(error => {
       console.error(error);
+      iziToast.error({
+        message: 'Not connecting, Please try again! ',
+        position: 'center',
+        backgroundColor: 'yellow',
+        
+      });
     })
     .finally(() => {
       hideLoader();
