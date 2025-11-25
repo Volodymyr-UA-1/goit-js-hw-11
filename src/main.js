@@ -1,9 +1,16 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-
 import {getImagesByQuery} from './js/pixabay-api';
+import {createGallery,
+        clearGallery,
+        showLoader,
+        hideLoader
+} from './js/render-functions';
+
 const formPixabay = document.querySelector('.form');
 const input = document.querySelector('input[name="search-text"]');
+
+
 formPixabay.addEventListener('submit', (e) =>{
         e.preventDefault();
 const inputValue = input.value.trim();
@@ -17,6 +24,10 @@ input.focus();
     });
     return;
   }
+  showLoader();
+  clearGallery();
+    
+
   getImagesByQuery(inputValue)
     .then(res => {
       const hits = res.hits;
@@ -32,17 +43,12 @@ input.focus();
         return;
       }
       console.log(hits);
+      createGallery(hits);
     })
     .catch(error => {
       console.error(error);
+    })
+    .finally(() => {
+      hideLoader();
     });
 })
-// import {createGallery,
-//         clearGallery,
-//         showLoader,
-//         hideLoader,
-// } from './js/render-functions';
-
-
-        // Імпортуй в нього функції із файлів pixabay-api.js та render-functions.js та викликай їх у відповідний момент.
-        // Імпортуй в нього функції із файлів pixabay-api.js та render-functions.js та викликай їх у відповідний момент. 

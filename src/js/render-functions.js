@@ -4,41 +4,55 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-
-//Ця функція повинна приймати масив images, 
-// створювати HTML-розмітку для галереї, 
-// додавати її в контейнер галереї 
-// та викликати метод екземпляра SimpleLightbox refresh(). 
-// Нічого не повертає.
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt', 
+  captionPosition: 'bottom', 
+});
 export function createGallery(images){
+const gallery  = document.querySelector('.gallery');
+images.forEach(image => {
+    const listElement = document.createElement('li');
 
-}
+    const link =  document.createElement('a')
+    link.href = image.largeImageURL;
+    link.title = image.tags;
+
+    const img =  document.createElement('img');
+    img.src = image.webformatURL;
+    img.alt = image.tags;
+
+    
+    link.appendChild(img);
+    listElement.appendChild(link);
+
+    const infoDiv = document.createElement('div');
+    infoDiv.classList.add('info');
+    infoDiv.innerHTML = `
+      <p>Likes: ${image.likes}</p>
+      <p>Views: ${image.views}</p>
+      <p>Comments: ${image.comments}</p>
+      <p>Downloads: ${image.downloads}</p>
+    `;
+
+    listElement.appendChild(infoDiv);
+    gallery.appendChild(listElement);
+});
+lightbox.refresh();
+} 
 
 
-
-//Ця функція нічого не приймає та повинна очищати вміст контейнера галереї. 
-// Нічого не повертає.
 
 export function clearGallery(){
-
+   const gallery = document.querySelector('.gallery');
+gallery.innerHTML = "";
 }
 
-
-
-//Ця функція нічого не приймає, 
-// повинна додавати клас для відображення лоадера. 
-// Нічого не повертає.//
-export function showLoader(){
-
+export function showLoader() {
+  const loader = document.querySelector('.loader');
+  loader.classList.remove('is-hidden');
 }
 
-
-
-
-//Ця функція нічого не приймає, 
-// повинна прибирати клас для відображення лоадера. 
-// Нічого не повертає.
-
-export function hideLoader(){
-
+export function hideLoader() {
+  const loader = document.querySelector('.loader');
+  loader.classList.add('is-hidden');
 }
